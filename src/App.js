@@ -1,14 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import styled from "styled-components";
 
-import { Container } from "./reusables";
+import { Container, Heading } from "./reusables";
 import { converStampCSVtoJSON } from "./helpers/CSV";
 import StampList from "./components/StampList";
-
-const Title = styled.h1`
-  text-align: center;
-`;
 
 class App extends Component {
   state = { stamps: [] };
@@ -23,7 +18,7 @@ class App extends Component {
     return (
       <div>
         <Container>
-          <Title>Finnish Stamps</Title>
+          <Heading>Postimerkit</Heading>
 
           <StampList stamps={this.state.stamps} perPage={6 * 6} />
         </Container>

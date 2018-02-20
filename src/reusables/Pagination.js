@@ -98,7 +98,7 @@ class Pagination extends Component {
           className={currentIndex === 0 ? "disabled" : ""}
           onClick={this.onPrevClick.bind(this)}
         >
-          Prev
+          Edellinen
         </Step>
 
         <Quick className={showQuickStart ? null : "hidden"}>
@@ -117,7 +117,7 @@ class Pagination extends Component {
           className={currentIndex === maxPages - 1 ? "disabled" : ""}
           onClick={this.onNextClick.bind(this)}
         >
-          Next
+          Seuraava
         </Step>
       </Wrapper>
     );

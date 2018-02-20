@@ -10,11 +10,16 @@ const Item = styled.div`
 `;
 
 const StampListItem = ({ stamp }) => {
-  console.log(stamp);
   return (
     <Item>
       <img src={stamp.imageURL} alt={stamp.title} />
-      <p>{stamp.title}</p>
+      <p>
+        <strong>{stamp.title}</strong>
+        <br />
+        {stamp.appearDate}
+        <br />
+        {stamp.author}
+      </p>
     </Item>
   );
 };
