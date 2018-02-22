@@ -1,30 +1,34 @@
 import React, { Component } from "react";
-import axios from "axios";
+import { connect } from "react-redux";
 
+import { fetchStamps } from "./actions/StampsActions";
 import { Container, Heading } from "./reusables";
-import { converStampCSVtoJSON } from "./helpers/CSV";
 import StampList from "./components/StampList";
 
 class App extends Component {
-  state = { stamps: [] };
-
   componentDidMount() {
-    axios.get("/data/postimerkit2014.csv").then(res => {
-      this.setState({ stamps: converStampCSVtoJSON(res.data) });
-    });
+    this.props.fetchStamps();
   }
 
   render() {
+    const { stamps } = this.props;
+
     return (
       <div>
         <Container>
           <Heading>Postimerkit</Heading>
 
-          <StampList stamps={this.state.stamps} perPage={6 * 6} />
+          <StampList stamps={stamps} perPage={6 * 6} />
         </Container>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = ({ stamps }) => {
+  return {
+    stamps
+  };
+};
+
+export default connect(mapStateToProps, { fetchStamps })(App);
