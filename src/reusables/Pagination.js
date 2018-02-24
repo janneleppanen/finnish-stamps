@@ -78,7 +78,8 @@ class Pagination extends Component {
     const { currentIndex, maxPages, onChange, spread } = this.props;
 
     return generateSteps(currentIndex, spread, maxPages - 1).map(i => {
-      const classes = currentIndex === i ? "step step--current" : "step";
+      let classes = currentIndex === i ? "step step--current" : "step";
+      classes += ` step-${i}`;
       return (
         <Step key={i} className={classes} onClick={e => onChange(i)}>
           {i + 1}
@@ -95,7 +96,7 @@ class Pagination extends Component {
     return (
       <Wrapper>
         <Step
-          className={currentIndex === 0 ? "disabled" : ""}
+          className={currentIndex === 0 ? "prev disabled" : "prev"}
           onClick={this.onPrevClick.bind(this)}
         >
           Edellinen
@@ -114,7 +115,7 @@ class Pagination extends Component {
         </Quick>
 
         <Step
-          className={currentIndex === maxPages - 1 ? "disabled" : ""}
+          className={currentIndex === maxPages - 1 ? "next disabled" : "next"}
           onClick={this.onNextClick.bind(this)}
         >
           Seuraava
