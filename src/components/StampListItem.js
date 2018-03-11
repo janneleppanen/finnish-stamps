@@ -1,25 +1,55 @@
 import React from "react";
 import styled from "styled-components";
 
-const Item = styled.div`
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
-  border: 1px solid #eee;
-  padding: 1rem;
+const Item = styled.a`
+  position: relative;
+  text-decoration: none;
+  box-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
   border-radius: 3px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  color: #777;
+  transition: all 0.2s;
+  top: 0;
+
+  &:hover {
+    top: -0.1rem;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+  }
+`;
+
+const ImageContainer = styled.div`
+  flex: 1;
+  margin-right: 1rem;
+  img {
+    display: block;
+  }
+`;
+
+const InfoTextContainer = styled.div`
+  flex: 3;
+`;
+
+const Title = styled.h2`
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
 `;
 
 const StampListItem = ({ stamp }) => {
   return (
-    <Item>
-      <img src={stamp.imageURL} alt={stamp.title} />
-      <p>
-        <strong>{stamp.title}</strong>
-        <br />
+    <Item href="#">
+      <ImageContainer>
+        <img src={stamp.imageURL} alt={stamp.title} />
+      </ImageContainer>
+      <InfoTextContainer>
+        <Title>{stamp.title}</Title>
         {stamp.appearDate}
         <br />
         {stamp.author}
-      </p>
+      </InfoTextContainer>
     </Item>
   );
 };

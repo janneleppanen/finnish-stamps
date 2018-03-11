@@ -7,15 +7,15 @@ import { Pagination } from "../reusables";
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.5rem;
 
   @media (max-width: 1040px) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (max-width: 650px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 
   @media (max-width: 500px) {
